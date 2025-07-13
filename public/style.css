@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #2f80ed, #56ccf2);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpK0i92QTNbOz9obSfV7sKYzWKSa7BEaEIBQ&s");
+}
+
+.container {
+  background-color: rgb(96, 165, 172);
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 420px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+h2 {
+  text-align: center;
+  color: #2f2e2f;
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+select,
+textarea {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #2f80ed;
+  outline: none;
+  box-shadow: 0 0 5px rgba(47, 128, 237, 0.3);
+}
+
+button {
+  padding: 0.8rem;
+  background-color: #2f80ed;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1e5fc1;
+}
+
+#message {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+.Admin{
+    position: absolute;
+    left: 47%;
+    top: 90%;
+    color: blanchedalmond;
+    background-color: rgb(3, 104, 187);
+}
+

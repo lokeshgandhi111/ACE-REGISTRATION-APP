@@ -4,129 +4,47 @@
   <meta charset="UTF-8" />
   <title>Registration Form</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #00c6ff, #0072ff);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-    }
-
-    .container {
-      background: #fff;
-      padding: 2rem 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      width: 100%;
-      max-width: 480px;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: #333;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-
-    label {
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-      color: #333;
-    }
-
-    input[type="text"],
-    input[type="email"] {
-      padding: 0.75rem 1rem;
-      margin-bottom: 1.2rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: border-color 0.3s;
-    }
-
-    input[type="text"]:focus,
-    input[type="email"]:focus {
-      border-color: #0072ff;
-      outline: none;
-    }
-
-    input[type="submit"] {
-      background-color: #0072ff;
-      color: white;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    input[type="submit"]:hover {
-      background-color: #005fd4;
-    }
-
-    .downloads {
-      margin-top: 2rem;
-      text-align: center;
-    }
-
-    .downloads a {
-      display: inline-block;
-      margin: 0.25rem 0.5rem;
-      text-decoration: none;
-      background-color: #f4f4f4;
-      color: #0072ff;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 0.95rem;
-      transition: background-color 0.2s;
-    }
-
-    .downloads a:hover {
-      background-color: #e0e0e0;
-    }
-
-    .success {
-      margin-top: 1rem;
-      text-align: center;
-      color: green;
-      font-weight: 500;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  
   <div class="container">
+    
+<h2>User Registration</h2>
+
     <h2>Register Now</h2>
     <form id="registrationForm">
-      <label for="fullName">Full Name</label>
-      <input type="text" name="fullName" id="fullName" required />
+  <input type="text" name="fullName" placeholder="Full Name" required />
 
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" required />
+  <input type="email" name="email" placeholder="Email" required />
 
-      <label for="phone">Phone</label>
-      <input type="text" name="phone" id="phone" required />
+  <input type="text" name="phone" placeholder="Phone Number" required />
 
-      <input type="submit" value="Submit" />
-    </form>
+  <input type="text" name="department" placeholder="Department" required />
+
+  <label for="year">Year</label>
+  <select name="year" id="year" required>
+    <option value="">-- Select Year --</option>
+    <option value="1st Year">1st Year</option>
+    <option value="2nd Year">2nd Year</option>
+    <option value="3rd Year">3rd Year</option>
+    <option value="4th Year">4th Year</option>
+  </select>
+
+
+  <button type="submit" >Submit</button>
+</form>
+
+<div id="message" style="margin-top: 1rem;"></div>
+
 
     <div id="successMessage" class="success" style="display: none;">Registration saved!</div>
       
   </div>
+<form id="adminForm">
+  <button type="submit" class="Admin">Admin Portal</button>
+</form>
+
 
   <script>
     const form = document.getElementById('registrationForm');
@@ -153,6 +71,21 @@
         alert('Something went wrong. Try again.');
       }
     });
+  const adminForm = document.getElementById('adminForm');
+
+  adminForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const password = prompt("Enter admin password:");
+
+    if (password === "admin123") {
+      // Redirect to admin page if password is correct
+      window.location.href = "/admin.html";
+    } else {
+      alert("❌ Incorrect password.");
+    }
+  });
+
   </script>
 </body>
 </html>

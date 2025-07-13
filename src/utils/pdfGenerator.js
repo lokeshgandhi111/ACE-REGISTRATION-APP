@@ -2,7 +2,7 @@ const PDFDocument = require('pdfkit');
 
 exports.generatePDF = (data) => {
   const doc = new PDFDocument();
-  doc.fontSize(12).text('Registrations', { align: 'center' });
+  doc.fontSize(15).text('Registrations', { align: 'center' });
   doc.moveDown();
   data.forEach((entry, index) => {
     doc.text(`${index + 1}.`);
