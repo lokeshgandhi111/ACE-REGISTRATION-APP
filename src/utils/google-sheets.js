@@ -54,6 +54,5 @@ exports.getGoogleSheetData = async () => {
     phone: row[3],
     department: row[4],
     year: row[5],
-    branch: row[6],
   }));
 };
