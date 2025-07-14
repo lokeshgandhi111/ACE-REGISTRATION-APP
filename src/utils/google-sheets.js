@@ -1,4 +1,3 @@
-// utils/google-sheets.js
 const { google } = require('googleapis');
 const keys = require('../google-service-key.json'); // your downloaded key
 const SHEET_ID = '1SWIiD_0ogiSK_mgBpkdZvPfcKBcLUcJbRC8RNpbjQn4'; 
