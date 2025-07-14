@@ -2,18 +2,18 @@ const registrationService = require('../services/registration.service');
 const exportService = require('../services/export.service');
 const { appendToGoogleSheet } = require('../utils/google-sheets');
 
-
 exports.registerUser = async (req, res) => {
   const userData = req.body;
 
   try {
-    await appendToGoogleSheet(userData); 
-    res.status(200).json({ message: 'Registration saved to Google Sheet!' });
+    await appendToGoogleSheet(userData);
+    res.status(200).json({ message: 'Saved to Google Sheet!' });
   } catch (error) {
-    console.error("❌ Failed to write to sheet:", error);
+    console.error('❌ Failed to write to sheet:', error);
     res.status(500).json({ error: 'Failed to save to Google Sheet' });
   }
 };
+
 
 
 exports.downloadData = async (req, res) => {

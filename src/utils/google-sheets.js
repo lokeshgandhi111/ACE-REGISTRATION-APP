@@ -1,12 +1,20 @@
 const { google } = require('googleapis');
-const keys = require('../google-service-key.json'); // your downloaded key
-const SHEET_ID = '1SWIiD_0ogiSK_mgBpkdZvPfcKBcLUcJbRC8RNpbjQn4'; 
+const path = require('path');
+const fs = require('fs');
+
+// Load the credentials from your key file
+const KEY_PATH = path.join(__dirname, '../../google-service-key.json');
+const credentials = JSON.parse(fs.readFileSync(KEY_PATH));
 
 const auth = new google.auth.GoogleAuth({
-  credentials: keys,
-  scopes: ['https://www.googleapis.com/auth/spreadsheets']
+  credentials: {
+    client_email: process.env.GOOGLE_CLIENT_EMAIL,
+    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+  },
+  scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
 
+const SHEET_ID = process.env.SHEET_ID;
 exports.appendToGoogleSheet = async (data) => {
   const client = await auth.getClient();
   const sheets = google.sheets({ version: 'v4', auth: client });
